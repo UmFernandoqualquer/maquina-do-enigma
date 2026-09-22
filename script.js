@@ -54,6 +54,8 @@ return c;
 
 function rotate(){
 
+gearSound();
+
 document.getElementById("r3").value++;
 
 if(document.getElementById("r3").value>25){
@@ -155,6 +157,8 @@ document
 .getElementById("lamp"+e)
 .classList.add("on");
 
+lampSound();
+
 
 setTimeout(()=>{
 
@@ -195,6 +199,8 @@ b.innerHTML=letter;
 
 b.onclick=()=>{
 
+keySound();
+
 document.getElementById("input").value+=letter;
 
 }
@@ -206,3 +212,100 @@ document
 
 
 });
+
+// SISTEMA DE SOM DA MÁQUINA ENIGMA
+
+const audio = new (window.AudioContext || window.webkitAudioContext)();
+
+
+function gearSound(){
+
+    let oscillator = audio.createOscillator();
+    let gain = audio.createGain();
+
+    oscillator.type = "square";
+
+    // som metálico de engrenagem
+    oscillator.frequency.value = 120;
+
+    gain.gain.value = 0.05;
+
+    oscillator.connect(gain);
+    gain.connect(audio.destination);
+
+
+    oscillator.start();
+
+    setTimeout(()=>{
+
+        oscillator.frequency.value = 70;
+
+    },80);
+
+
+    setTimeout(()=>{
+
+        oscillator.stop();
+
+    },180);
+
+}
+
+
+
+function keySound(){
+
+    let osc = audio.createOscillator();
+    let gain = audio.createGain();
+
+
+    osc.type="triangle";
+    osc.frequency.value=500;
+
+    gain.gain.value=0.08;
+
+
+    osc.connect(gain);
+    gain.connect(audio.destination);
+
+
+    osc.start();
+
+
+    setTimeout(()=>{
+
+        osc.stop();
+
+    },100);
+
+}
+
+
+
+function lampSound(){
+
+    let osc = audio.createOscillator();
+    let gain = audio.createGain();
+
+
+    osc.type="sine";
+    osc.frequency.value=900;
+
+
+    gain.gain.value=0.04;
+
+
+    osc.connect(gain);
+    gain.connect(audio.destination);
+
+
+    osc.start();
+
+
+    setTimeout(()=>{
+
+        osc.stop();
+
+    },150);
+
+}
