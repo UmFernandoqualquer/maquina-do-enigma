@@ -131,57 +131,61 @@ return letter;
 }
 
 
+async function encrypt(){
 
-function encrypt(){
-
-
-let text=document
+let text = document
 .getElementById("input")
 .value
 .toUpperCase();
 
 
-let result="";
+let output = document.getElementById("output");
+
+output.value = ""; // limpa a saída
 
 
 for(let c of text){
 
-if(alphabet.includes(c)){
-
-let e=encryptLetter(c);
-
-result+=e;
+    if(alphabet.includes(c)){
 
 
-document
-.getElementById("lamp"+e)
-.classList.add("on");
-
-lampSound();
+        let e = encryptLetter(c);
 
 
-setTimeout(()=>{
+        // adiciona uma letra por vez
+        output.value += e;
 
-document
-.getElementById("lamp"+e)
-.classList.remove("on");
 
-},300);
+        // acende a lâmpada
+        document
+        .getElementById("lamp"+e)
+        .classList.add("on");
 
+
+        lampSound();
+
+
+        // tempo que a lâmpada fica ligada
+        await delay(350);
+
+
+        document
+        .getElementById("lamp"+e)
+        .classList.remove("on");
+
+
+        // pausa antes da próxima letra
+        await delay(150);
+
+
+    }
+    else{
+
+        output.value += c;
+
+    }
 
 }
-
-else{
-
-result+=c;
-
-}
-
-}
-
-
-document.getElementById("output").value=result;
-
 
 }
 
@@ -289,7 +293,7 @@ function lampSound(){
 
 
     osc.type="sine";
-    osc.frequency.value=900;
+    osc.frequency.value=1500;
 
 
     gain.gain.value=0.04;
@@ -307,5 +311,11 @@ function lampSound(){
         osc.stop();
 
     },150);
+
+}
+
+function delay(ms){
+
+return new Promise(resolve => setTimeout(resolve, ms));
 
 }
