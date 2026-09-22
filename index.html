@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Máquina Enigma</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="machine">
+
+<h1>ENIGMA</h1>
+
+<div class="rotors">
+    <div>
+        Rotor I
+        <input id="r1" value="0" type="number">
+    </div>
+
+    <div>
+        Rotor II
+        <input id="r2" value="0" type="number">
+    </div>
+
+    <div>
+        Rotor III
+        <input id="r3" value="0" type="number">
+    </div>
+</div>
+
+
+<div class="lamps" id="lamps"></div>
+
+
+<textarea id="input" placeholder="Digite a mensagem"></textarea>
+
+<button onclick="encrypt()">CRIPTOGRAFAR</button>
+
+<textarea id="output" readonly></textarea>
+
+
+<h3>Plugboard</h3>
+
+<input id="plug" placeholder="Ex: AB CD EF">
+
+
+<div class="keyboard" id="keyboard"></div>
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+body{
+    background:#222;
+    font-family:Arial;
+    display:flex;
+    justify-content:center;
+}
+
+
+.machine{
+
+    margin-top:30px;
+    width:700px;
+    background:#8b5a2b;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 0 20px black;
+
+    color:white;
+}
+
+
+h1{
+    text-align:center;
+    color:#ddd;
+}
+
+
+.rotors{
+
+display:flex;
+justify-content:center;
+gap:20px;
+
+}
+
+
+.rotors div{
+
+background:#111;
+padding:15px;
+border-radius:10px;
+
+}
+
+
+input{
+
+width:60px;
+
+}
+
+
+.lamps{
+
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+margin:20px;
+
+}
+
+
+.lamp{
+
+width:25px;
+height:25px;
+border-radius:50%;
+background:#333;
+margin:5px;
+
+}
+
+
+.on{
+
+background:yellow;
+box-shadow:0 0 15px yellow;
+
+}
+
+
+textarea{
+
+width:95%;
+height:60px;
+margin:10px;
+font-size:18px;
+
+}
+
+
+button{
+
+padding:15px;
+background:#111;
+color:white;
+border:0;
+cursor:pointer;
+
+}
+
+
+.keyboard{
+
+display:grid;
+grid-template-columns:repeat(9,1fr);
+gap:5px;
+margin-top:20px;
+
+}
+
+
+.key{
+
+background:#222;
+padding:10px;
+text-align:center;
+border-radius:5px;
+cursor:pointer;
+
+}
+
+
+.key:hover{
+
+background:#555;
+
+}
